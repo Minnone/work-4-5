@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "name",
+      "price": null,
+      "description": "discription",
+      "categories": [
+        "category"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Кофемашина DeLonghi",
+      "price": 15999,
+      "description": "Автоматическая кофемашина для дома",
+      "categories": [
+        "appliances"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Планшет iPad",
+      "price": 44999,
+      "description": "Планшет для работы и творчества",
+      "categories": [
+        "electronics"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Микроволновая печь Samsung",
+      "price": 8999,
+      "description": "Компактная микроволновая печь",
+      "categories": [
+        "appliances"
+      ]
+    }
+  ]
+}
