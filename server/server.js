@@ -12,8 +12,13 @@ const dataPath = path.join(__dirname, '..', 'date', 'products.json');
 
 // Чтение данных из json-файла
 const readData = () => {
-    const rawData = fs.readFileSync(dataPath);
-    return JSON.parse(rawData);
+    try {
+        const rawData = fs.readFileSync(dataPath);
+        return JSON.parse(rawData);
+    } catch (error) {
+        console.error('Ошибка при чтении файла products.json:', error);
+        return { products: [] }; // Возвращаем пустой массив, если файл не найден или поврежден
+    }
 };
 
 // Запись данных в json-файл
@@ -21,7 +26,7 @@ const writeData = (data) => {
     fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 };
 
-// Добавляем раздачу статических файлов из директории front
+// Раздача статических файлов из директории front
 app.use(express.static(path.join(__dirname, '../front')));
 
 // Маршрут для главной страницы
@@ -38,6 +43,18 @@ app.get('/admin', (req, res) => {
 app.get('/api/products', (req, res) => {
     const data = readData();
     res.json(data.products);
+});
+
+// Получение товара по ID
+app.get('/api/products/:id', (req, res) => {
+    const productId = parseInt(req.params.id);
+    const data = readData();
+    const product = data.products.find(product => product.id === productId);
+    if (product) {
+        res.json(product);
+    } else {
+        res.status(404).json({ message: 'Product not found' });
+    }
 });
 
 // Добавление нового товара
@@ -76,7 +93,7 @@ app.delete('/api/products/:id', (req, res) => {
     res.status(204).send();
 });
 
-// Измените порт на 3000 и хост на localhost
+// Запуск сервера на порту 3000
 const PORT = 3000;
 const HOST = 'localhost';
 app.listen(PORT, HOST, () => {
