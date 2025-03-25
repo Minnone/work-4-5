@@ -1,22 +1,40 @@
 {
   "products": [
     {
-      "name": "123123",
-      "price": 5,
-      "description": "шлюхина дочь",
-      "categories": [
-        "товар"
-      ],
-      "id": 4
-    },
-    {
       "name": "apple",
       "price": 25000,
       "description": "новый айфон",
       "categories": [
         "техника"
       ],
+      "id": 1
+    },
+    {
+      "name": "apple",
+      "price": 99999,
+      "description": "iphone",
+      "categories": [
+        "phone"
+      ],
+      "id": 2
+    },
+    {
+      "name": "123123",
+      "price": 123,
+      "description": "321",
+      "categories": [
+        "ooo"
+      ],
       "id": 3
+    },
+    {
+      "name": "add",
+      "price": 123,
+      "description": "321",
+      "categories": [
+        "sa"
+      ],
+      "id": 4
     }
   ]
 }
